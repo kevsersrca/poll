@@ -57,7 +57,7 @@
         				</td>
         				<td>
         				      <p>Kaç adet?</p>
-        							<input name='secenek_sayisi' type='text' id='count' placeholder='Seçenek Sayısı (Textbox için 0 giriniz)'required/>
+        							<input name='secenek_sayisi' type='text' id='count' placeholder='Seçenek Sayısı (Textbox için 0 giriniz)' required/>
         							<button type="button" id="secenek" name="button" class="btn btn-primary">Devam</button>
         				</td>
         			</tr>

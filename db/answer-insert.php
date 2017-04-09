@@ -1,3 +1,6 @@
 <?php
 
-var_dump($_POST['checkboxes']);
+if($_POST["checkboxes"])
+{
+  
+}

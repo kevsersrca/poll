@@ -39,9 +39,9 @@
           <div class="form-group">
             <label class="col-md-4 control-label" for="radios"><?=$row["question"]; ?> ?</label>
             <div class="col-md-4">
-              <select id="select" name="options" required>
+              <select id="select" name='options[]'required>
                 <?php foreach ($db ->query("SELECT * FROM option where question_id='$row[id]'") as $row2){
-                  echo "<option value='$row2[id]'>$row2[option]</option>";
+                  echo "<option value='$row2[option]' >$row2[option]</option>";
                 }
               ?>
               </select>
@@ -67,7 +67,7 @@
           <div class="form-group">
             <label id="name-label" class="col-md-4 control-label" for="name"><?=$row["question"]; ?></label>
             <div class="col-md-4">
-              <input id="name" name="name" type="text" placeholder="Enter your name" class="form-control input-md" required="">
+              <input id="name" name="name[]" type="text" placeholder="Enter your name" class="form-control input-md" required="">
             </div>
           </div>
         <?php } }?>

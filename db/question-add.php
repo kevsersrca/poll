@@ -17,12 +17,14 @@ try{
     $qu->execute(array(':question'=> $soru));
     $soru_number =  $qu->fetch();
     $soru_id=$soru_number['id'];
-
-    //Soru id'si ile verilen cevap valuelerini kaydetme
-    foreach ($_POST["values"] as $value) {
-      $que = $db->prepare("INSERT INTO option SET question_id = ?,option = ?");
-      $inser = $que->execute(array($soru_id, $value));
+    if(isset($_POST["values"])){
+      //Soru id'si ile verilen cevap valuelerini kaydetme
+      foreach ($_POST["values"] as $value) {
+        $que = $db->prepare("INSERT INTO option SET question_id = ?,option = ?");
+        $inser = $que->execute(array($soru_id, $value));
+      }
     }
+
     header("refresh:1; url=../../index.php");
 
 }
