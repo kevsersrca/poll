@@ -32,51 +32,16 @@
       <a href="#" class="logout">Log out <i class="fa fa-sign-out"></i></a>
     </div>
   </div>
-  <div class="survey-form">
-    <form class="form-horizontal" method="POST" action="../db/answer-insert.php">
-      <?php foreach ($db ->query('SELECT * FROM question ') as $row) { ?>
-        <?php if($row["type"]==1) {?>
-          <div class="form-group">
-            <label class="col-md-4 control-label" for="radios"><?=$row["question"]; ?> ?</label>
-            <div class="col-md-4">
-              <select id="select" name='options[]'required>
-                <?php foreach ($db ->query("SELECT * FROM option where question_id='$row[id]'") as $row2){
-                  echo "<option value='$row2[option]' >$row2[option]</option>";
-                }
-              ?>
-              </select>
-            </div>
+    <div class="anket">
+      <div class="select-anket">
+        <form method='post' action='fill-out-servey2.php'>
+          <div class="first">
+            <select id="anket_tipi" name="anket_id" required>
+              <?php foreach ($db ->query('SELECT * FROM servey ') as $row){
+                echo "<option value='$row[id]'>$row[name]</option>";
+              }
+            ?>
+            </select>
+            <input type="submit" class="button" class="btn btn-primary" value="Devam">
           </div>
-        <?php } ?>
-        <?php if($row["type"]==2) {?>
-          <div class="form-group">
-            <label class="col-md-4 control-label" for="checkboxes"><?=$row["question"]; ?> ?</label>
-            <div class="col-md-4">
-              <?php foreach ($db ->query("SELECT * FROM option where question_id='$row[id]'") as $row2) { ?>
-            <div class="checkbox">
-              <label for="checkboxes-0">
-                <input type="checkbox" name="checkboxes[]" value="<?=$row2["option"]?>">
-                <?=$row2["option"]?>
-              </label>
-            </div>
-            <?php } ?>
-            </div>
-          </div>
-        <?php } ?>
-        <?php if($row["type"]==3) { ?>
-          <div class="form-group">
-            <label id="name-label" class="col-md-4 control-label" for="name"><?=$row["question"]; ?></label>
-            <div class="col-md-4">
-              <input id="name" name="name[]" type="text" placeholder="Enter your name" class="form-control input-md" required="">
-            </div>
-          </div>
-        <?php } }?>
-
-          <div class="form-group">
-            <div class="col-md-4 col-md-offset-4 text-center">
-          <button id="submit- button" name="submit- button" class="btn btn-primary">SUBMIT</button>
-          </div>
-          </div>
-          </div>
-    </form>
   </div>
