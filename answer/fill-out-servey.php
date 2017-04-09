@@ -4,7 +4,7 @@
       </ul>
       <ul class="menu">
         <li>Anket</li>
-        <li><a href="">Anket Ekle</a></li>
+        <li><a href="../survey/survey-add.php">Anket Ekle</a></li>
       </ul>
       <ul class="menu">
         <li>Soru</li>
